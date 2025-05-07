@@ -1,0 +1,96 @@
+Create a church management web application using Node.js with Express for the backend and React.js for the frontend. The project is **not** a single-page application (SPA) and includes a navigation bar, header section displaying user account details, and a footer on all pages. The application includes the following features and requirements:
+
+1. **Backend**:
+   - Use Node.js with Express to build a RESTful API.
+   - Integrate MySQL as the database for storing user data, contacts, donations, activities, and history.
+   - Use Cloudinary for storing and managing images and videos (e.g., sermons, events, banners).
+   - Implement JWT-based authentication for secure login and signup.
+   - Create an admin panel accessible only to the user with the "owner" role, identified by the email `shahidsingh1432@gmail.com`.
+   - Admin panel features:
+     - Manage all media (images/videos) stored in Cloudinary (upload, delete, update).
+     - Manage users (view, edit, delete, block).
+     - Manage contacts (view, respond, delete).
+     - Manage donation information (track donations, generate reports).
+     - Track all activities and maintain a history log (e.g., user actions, media uploads, donations).
+   - Implement endpoints for:
+     - User login and signup with email notifications for signup confirmation.
+     - CRUD operations for users, contacts, donations, and media.
+     - Activity logging for history tracking.
+     - Role-based access control (RBAC) to restrict admin panel access.
+
+2. **Frontend**:
+   - Use React.js with Tailwind CSS for styling.
+   - Implement a multi-page application with server-side rendering or static page generation (e.g., using Next.js or React with Express routing) instead of an SPA.
+   - Include the following UI components on all pages:
+     - **Navigation Bar**: 
+       - Links to Home, Events, Donations, Sermons, Contact, About, and Login/Signup (for unauthenticated users) or Profile/Logout (for authenticated users).
+       - Admin link visible only to the owner role (`shahidsingh1432@gmail.com`).
+       - Responsive design with a hamburger menu for mobile devices.
+     - **Header Section**: 
+       - Display user account details (e.g., name, email, or "Guest" if unauthenticated).
+       - Include a profile picture (if available, hosted on Cloudinary) and a dropdown for profile settings or logout.
+     - **Footer**:
+       - Include church contact info (address, phone, email), social media links, and a copyright notice.
+       - Add quick links to key pages (e.g., Contact, Donations).
+       - Responsive and consistent across all pages.
+   - Create the following pages:
+     - **Home Page**: Display church information, upcoming events, and a banner with Cloudinary-hosted images/videos.
+     - **Login/Signup Page**: Allow users to log in or sign up with email validation and notification opt-in.
+     - **Events Page**: List church events with details and media (images/videos from Cloudinary).
+     - **Donation Page**: Allow users to donate and view donation history (integrated with a payment gateway like Stripe, if possible).
+     - **Contact Page**: Form for users to submit inquiries, stored in MySQL and manageable via the admin panel.
+     - **Sermons Page**: Display sermon videos and audio files hosted on Cloudinary.
+     - **About Page**: Information about the church’s mission, vision, and leadership.
+     - **Profile Page**: Allow users to view and edit their account details (e.g., name, email, notification preferences).
+     - **Admin Panel** (accessible only to the owner):
+       - Dashboard with analytics (e.g., user count, donation summary).
+       - Media management section for Cloudinary assets.
+       - User management section.
+       - Contact management section.
+       - Donation management section.
+       - Activity history section with filters.
+   - Ensure responsive design for mobile and desktop.
+
+3. **Database Schema** (MySQL):
+   - **Users**: id, email, password (hashed), name, role (user/owner), notification_opt_in, profile_picture_url, created_at.
+   - **Contacts**: id, name, email, message, status, created_at.
+   - **Donations**: id, user_id, amount, payment_method, status, created_at.
+   - **Media**: id, cloudinary_url, type (image/video), title, description, uploaded_by, created_at.
+   - **Activities**: id, user_id, action (e.g., login, media_upload), details, created_at.
+   - **Events**: id, title, description, date, media_id, created_at.
+
+4. **Integrations**:
+   - Cloudinary SDK for media upload and management.
+   - Nodemailer or similar for sending signup confirmation and notification emails.
+   - Optional: Integrate a payment gateway (e.g., Stripe) for donations.
+
+5. **Security**:
+   - Use environment variables for sensitive data (e.g., MySQL credentials, Cloudinary API keys, JWT secret).
+   - Implement input validation and sanitization to prevent SQL injection and XSS.
+   - Use HTTPS for API calls.
+   - Hash passwords using bcrypt.
+
+6. **Project Structure**:
+   - Backend: `/server` (Express routes, controllers, models, middleware).
+   - Frontend: `/client` (React components, pages, styles).
+   - Clear separation of concerns with modular code.
+
+7. **Deployment**:
+   - Ensure the project is compatible with Replit’s hosting environment.
+   - Provide a `.replit` file for easy setup and running.
+   - Include a README with setup instructions, including MySQL and Cloudinary configuration.
+
+8. **Additional Notes**:
+   - Use modern JavaScript (ES6+) and React hooks.
+   - Ensure the admin panel is protected with role-based middleware.
+   - Optimize media loading from Cloudinary for performance.
+   - Include basic error handling and user feedback (e.g., toast notifications).
+   - Follow best practices for SEO and accessibility.
+   - Implement page transitions or reloads for multi-page navigation instead of client-side routing.
+
+Generate the complete project with all necessary files, including:
+- Backend: Express server, MySQL setup, Cloudinary integration, and API routes.
+- Frontend: React components, Tailwind CSS setup, navigation bar, header, footer, and multi-page routing.
+- Database: SQL scripts for schema creation.
+- Configuration: Environment variables and `.replit` file.
+- Documentation: README with setup and usage instructions.

@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    
+    --primary: 217 58% 40%;
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-light: 217 58% 50%;
+    --primary-dark: 217 58% 33%;
+    
+    --secondary: 30 91% 52%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --secondary-light: 38 93% 52%;
+    --secondary-dark: 21 93% 41%;
+    
+    --accent: 283 44% 47%;
+    --accent-foreground: 0 0% 100%;
+    
+    --accent-light: 285 42% 53%;
+    --accent-dark: 288 45% 40%;
+    
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 20% 65%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 32% 92%;
+    --input: 214 32% 91%;
+    --ring: 215 58% 40%;
+    
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 217 58% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 58% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 32% 92%;
+    --sidebar-ring: 215 58% 40%;
+    
+    --radius: 0.375rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto;
+  }
+}
